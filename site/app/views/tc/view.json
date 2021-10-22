@@ -1,0 +1,10 @@
+{
+  "title": "公共组件",
+  "description": "Qunar TC公共组件",
+  "logoUrl": "/tc/logo.jpg",
+  "tags": ["tag"],
+  "exclude": [
+    ".*-about$",
+    "^lang-.*"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "title": "开发",
+  "description": "开发相关codelabs",
+  "logoUrl": "/tc/logo.jpg",
+  "tags": ["dev"],
+  "exclude": [
+    ".*-about$",
+    "^lang-.*"
+  ]
+}
+

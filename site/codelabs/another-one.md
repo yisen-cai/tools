@@ -1,12 +1,12 @@
-summary: VsLive
-id: vs-live
-categories: VsLive
-tags: :
+summary: Another One
+id: another-one
+categories: Another
+tags: medium
 status: Published 
 authors: Zarin
-Feedback Link: https://zarin.io
+Feedback Link: https://zarin.i
 
-# VsLive
+# Another One
 <!-- ------------------------ -->
 ## Overview 
 Duration: 1
@@ -17,6 +17,8 @@ Duration: 1
 - how to hyperlink items 
 - how to include images 
 - other stuff
+
+
 
 <!-- ------------------------ -->
 ## Setting Duration
@@ -60,7 +62,7 @@ Duration: 1
 [Youtube - Halsey Playlists](https://www.youtube.com/user/iamhalsey/playlists)
 
 ### Images
-![alt-text-here](assets/puppy.jpg)
+![alt-text-here](https://md-bed.oss-cn-beijing.aliyuncs.com/uPic/puppy.jpg)
 
 <!-- ------------------------ -->
 ## Other Stuff

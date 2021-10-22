@@ -193,7 +193,7 @@ Creating gs://mco-codelabs-prod/...
 #### Setup permissions and web access to your buckets
 
 1. Make newly uploaded files world-readable and ensure user@ has owner
-permissions:
+   permissions:
 
     ```text
     $ gsutil defacl ch -g all:R -u you@your-domain.com:O $STAGING_BUCKET $PROD_BUCKET
@@ -383,3 +383,11 @@ If gulp startup times are really slow, try removing `node_modules/` or running
 ```text
 $ npm dedupe
 ```
+
+
+
+
+
+自动化脚本处理
+
+commit前清理
