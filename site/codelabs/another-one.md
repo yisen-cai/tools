@@ -8,7 +8,7 @@ Feedback Link: https://zarin.i
 
 # Another One
 <!-- ------------------------ -->
-## Overview 
+## Overview
 Duration: 1
 
 ### What You’ll Learn 
@@ -62,7 +62,7 @@ Duration: 1
 [Youtube - Halsey Playlists](https://www.youtube.com/user/iamhalsey/playlists)
 
 ### Images
-![alt-text-here](https://md-bed.oss-cn-beijing.aliyuncs.com/uPic/puppy.jpg)
+![alt-text-here](assets/puppy.jpg)
 
 <!-- ------------------------ -->
 ## Other Stuff

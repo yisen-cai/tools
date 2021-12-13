@@ -225,11 +225,11 @@ func (f *Fetcher) SlurpImages(src, dir string, n []nodes.Node, images map[string
 	for _, imageNode := range imageNodes {
 		go func(imageNode *nodes.ImageNode) {
 			url := imageNode.Src
-			file, err := f.slurpBytes(src, dir, url)
-			if err == nil {
-				imageNode.Src = filepath.Join(util.ImgDirname, file)
-			}
-			ch <- &res{url, file, err}
+			//file, err := f.slurpBytes(src, dir, url)
+			//if err == nil {
+			//	imageNode.Src = filepath.Join(util.ImgDirname, file)
+			//}
+			ch <- &res{url, "", nil}
 		}(imageNode)
 	}
 	var errStr string

@@ -69,6 +69,12 @@ func TestImageNodeEmpty(t *testing.T) {
 			},
 			out: true,
 		},
+		{
+			name: "With",
+			inOpts: NewImageNodeOptions{
+				Src: "https://md-bed.oss-cn-beijing.aliyuncs.com/uPic/image-20211130115936807.png",
+			},
+		},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
