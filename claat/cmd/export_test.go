@@ -63,7 +63,7 @@ func TestExportCodelabMemory(t *testing.T) {
 			opts := cmd.CmdExportOptions{
 				Expenv:   "web",
 				Output:   tmp,
-				Tmplout:  "devsite",
+				Tmplout:  "html",
 				GlobalGA: "UA-99999999-99",
 			}
 
@@ -116,6 +116,7 @@ func filterIgnoredLinePrefix(content string) string {
 	ignoredLinePrefix := []string{
 		"<meta name=\"original_source\" content=\"",
 		"doc-id=\"",
+		"last-updated=\"", // https://github.com/googlecodelabs/tools/issues/395
 	}
 
 	lines := strings.Split(content, "\n")
