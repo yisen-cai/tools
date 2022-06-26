@@ -42,3 +42,5 @@ Thumbs.db
 
 # pods ignore
 Pods/
+claat/claat.exe
+site/codelabs/*/
