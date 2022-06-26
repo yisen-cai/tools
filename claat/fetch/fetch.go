@@ -46,6 +46,9 @@ const (
 
 	// driveAPI is a base URL for Drive API
 	driveAPI = "https://www.googleapis.com/drive/v3"
+
+	// Minimum image size in bytes for extension detection.
+	minImageSize = 11
 )
 
 // TODO: create an enum for use with "nometa" for readability's sake
@@ -268,20 +271,17 @@ func (f *Fetcher) slurpBytes(codelabSrc, dir, imgURL string) (string, error) {
 		if imgURL, err = restrictPathToParent(imgURL, filepath.Dir(codelabSrc)); err != nil {
 			return "", err
 		}
-		b, err = ioutil.ReadFile(imgURL)
+		if b, err = ioutil.ReadFile(imgURL); err != nil {
+			return "", err
+		}
 		ext = filepath.Ext(imgURL)
 	} else {
-		b, err = f.slurpRemoteBytes(u.String(), 5)
-		if string(b[6:10]) == "JFIF" {
-			ext = ".jpeg"
-		} else if string(b[0:3]) == "GIF" {
-			ext = ".gif"
-		} else {
-			ext = ".png"
+		if b, err = f.slurpRemoteBytes(u.String(), 5); err != nil {
+			return "", fmt.Errorf("Error downloading image at %s: %v", u.String(), err)
 		}
-	}
-	if err != nil {
-		return "", err
+		if ext, err = imgExtFromBytes(b); err != nil {
+			return "", fmt.Errorf("Error reading image type at %s: %v", u.String(), err)
+		}
 	}
 
 	crc := crc64.Checksum(b, f.crcTable)
@@ -508,4 +508,18 @@ func isStdout(filename string) bool {
 // The base argument is codelab parent directory.
 func codelabDir(base string, m *types.Meta) string {
 	return filepath.Join(base, m.ID)
+}
+
+func imgExtFromBytes(b []byte) (string, error) {
+	if len(b) < minImageSize {
+		return "", fmt.Errorf("error parsing image - response \"%s\" is too small (< %d bytes)", b, minImageSize)
+	}
+	ext := ".png"
+	switch {
+	case string(b[6:10]) == "JFIF":
+		ext = ".jpeg"
+	case string(b[0:3]) == "GIF":
+		ext = ".gif"
+	}
+	return ext, nil
 }
