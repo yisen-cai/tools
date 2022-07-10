@@ -30,9 +30,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/stoewer/go-strcase"
 	"golang.org/x/net/html"
 	"golang.org/x/net/html/atom"
-	"github.com/stoewer/go-strcase"
 
 	"github.com/googlecodelabs/tools/claat/nodes"
 	"github.com/googlecodelabs/tools/claat/parser"
