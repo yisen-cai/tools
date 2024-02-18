@@ -5,3 +5,14 @@ bazel-*
 debug.test
 *pb.go
 node_modules
+
+# sample configs
+claat/codelab-4-codelab-markdown/
+sample/codelab-4-codelab-markdown/
+claat/claat
+claat/codelab.json
+claat/codelab.md
+claat/index.html
+**/package-lock.json
+package-lock.json
+**/*.log

@@ -14,14 +14,14 @@ The project requires the following major dependencies:
 
 With Node installed, run `npm install` in the root of the `site` (this folder):
 
-```text
+```bash
 $ npm install
 ```
 
 (Optional) npm installs binstubs at `./node_modules/.bin/`. When running tasks
 like `gulp`, you may want to add `./node_modules/.bin/` to your `$PATH` for convenience:
 
-```text
+```bash
 $ export PATH="./node_modules/.bin/:$PATH"
 ```
 
@@ -37,7 +37,7 @@ with the codelabs content as an argument. This will compile all the views and
 codelabs into the `build/` directory and start a web server to serve that
 content.
 
-```text
+```bash
 $ gulp serve
 ```
 
@@ -48,9 +48,19 @@ You can also serve the completely compiled and minified (prod) version with the
 `serve:dist` command. Always run this before publishing, as it will show you an
 replica of what will appear on staging/production.
 
-```text
+```bash
 $ gulp serve:dist
 ```
+
+Serve specific directory:
+
+~~~bash
+$ gulp serve --codelabs-dir=../sample
+~~~
+
+
+
+
 
 ### Views
 
@@ -82,7 +92,7 @@ with special characters replaced with dashes.
 1. Add a new file named `view.json` inside this folder. Here is a template
 `view.json`:
 
-    ```javascript
+    ```json
     // app/views/my-event/view.json
     {
       // Required: page and view title.
@@ -161,7 +171,7 @@ Instead, build all views and then visit the appropriate URL. If you still wish
 to build a single set of views, you can do so with the `--views-filter`
 parameter:
 
-```text
+```bash
 $ gulp serve --views-filter='^event-*'
 ```
 
@@ -176,14 +186,14 @@ Once you build, serve, and verify your labs, you're on your own for publishing t
 
 #### Set  environment variables like this (use your own names):
 
-```
+```bash
 export STAGING_BUCKET=gs://mco-codelabs-staging
 export PROD_BUCKET=gs://mco-codelabs-prod
 ```
 
 #### Create staging and production buckets like this (use your own names):
 
-```
+```text
 18:42:32 site$ gsutil mb is $STAGING_BUCKET
 Creating gs://mco-codelabs-staging/...
 18:42:47 site$ gsutil mb $PROD_BUCKET
@@ -193,7 +203,7 @@ Creating gs://mco-codelabs-prod/...
 #### Setup permissions and web access to your buckets
 
 1. Make newly uploaded files world-readable and ensure user@ has owner
-permissions:
+   permissions:
 
     ```text
     $ gsutil defacl ch -g all:R -u you@your-domain.com:O $STAGING_BUCKET $PROD_BUCKET
